@@ -18,9 +18,15 @@ const Sendmail = () => {
     const status = useContext(userContext);
     const selectAccount = useContext(userContext)
     const Email = selectAccount.userSelect
-    
-    const formik = useFormik({
+    const date = new Date()
+    const hour = date.getHours()
+    const min = date.getMinutes()
 
+    let minute = min<10 ? '0'+min:min
+    let sendtime = hour<12?'0'+hour+':'+minute:hour+':'+minute
+
+    const formik = useFormik({
+    
         initialValues:{
             from: Email,
             to:'',
@@ -48,8 +54,8 @@ const Sendmail = () => {
             formData.append('subject',subject)
             formData.append('message',message)
             formData.append('bulkmailId',bulkmailId)
-            // formData.append('file',file)
-            console.log(formData);
+            formData.append('sendtime',sendtime)
+            console.log(formData,sendtime);
 
             for (let i = 0; i < file.length; i++) {
                 formData.append('file', file[i]);
@@ -71,7 +77,8 @@ const Sendmail = () => {
 
     })
     // status.setSent(false)
-    // console.log(status.sent);
+    
+    // console.log(hour+':'+min);
   return (
 
     <div>
