@@ -13,7 +13,8 @@ const ViewMail = () => {
     useEffect(()=>{
         axios.get('https://bulkmailapp.onrender.com/getmail/'+id)
         .then(result =>
-        {console.log(result.data._id)
+        {
+            // console.log(result.data._id)
             setDetail(result.data)
             setFiles(result.data.files)
     })
@@ -42,6 +43,7 @@ const ViewMail = () => {
         .catch(err => console.log(err))
     }
     }
+  
   return (
     <div><Navbar/>
         <div className='viewmail'>
@@ -53,7 +55,7 @@ const ViewMail = () => {
                         <hr className='vline' />
                         <li className='viewsub'>Subject:<br></br> <p className='paramsg'>{detail.sub}</p> </li>
                         <hr className='vline' />
-                        <li className='viewmsg'>Message:<br></br> <p className='paramsg'>{detail.message}</p></li>
+                        <li className='viewmsg'>Message:<br></br> <p className='paramsg'>{detail.message!=undefined?detail.message.split(',').join(' '):null}</p></li>
                         <hr className='vline' />
                         
                         <button className='deletemail' onClick={()=>handleDelete(detail._id)}>

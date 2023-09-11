@@ -5,6 +5,7 @@ import { userContext } from './App'
 import axios from 'axios'
 import Navbar from './Navbar'
 import mail1 from './gmail.png'
+import Footer from './Footer'
 const Home = () => {
   
   const status = useContext(userContext);
@@ -50,17 +51,21 @@ const Home = () => {
                 sentMail.map((a,i)=>
                 <Link to={'/viewmail/'+a._id} >
                   <div className='perMail'>
-                     <div className='justy'>
-                          <div className='profiledp homedp'>
-                                      {EMAIL.slice(0,1)}
-                          </div>
-                            <ul key={i} className='mailSent'>
-                              <li className='to'>To: {a.toMail.length>1?'BULK MAIL...':a.toMail}</li>
-                              <li className='sub'>Sub: {a.sub}</li>
-                            </ul>
-                           
+                          <div className='justy'>
+                                 
+                                      <div className='profiledp homedp'>
+                                                  {EMAIL.slice(0,1)}
+                                      </div>
+                                          <ul key={i} className='mailSent'>
+                                            <li className='to'>To: {a.toMail.length>1?'BULK MAIL...':a.toMail}</li>
+                                            <li className='sub'>Sub: {a.sub}</li>
+                                          </ul>
+                                
+                               
                             </div>
-                            <div className='sentTime'>{(a.time).slice(4,21)}</div>
+                          
+                                    <div className='sentTime'>{(a.time).slice(4,21)}</div>
+                            
                      </div>
                   </Link>
                 ):<div className='empty'>
@@ -74,6 +79,7 @@ const Home = () => {
                                 <span className='app y'>App</span>
                             </div>
                     </div>
+                    
                 </div>
 
                  

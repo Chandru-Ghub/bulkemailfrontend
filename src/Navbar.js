@@ -7,6 +7,7 @@ import mail1 from './gmailogo.png'
 import './Navbar.css'
 const Navbar = () => {
         const[dp,setDp] = useState('')
+        const[menu,setmenu] = useState(true)
         const[fname,setfname] = useState('')
         const[lname,setlname] = useState('')
         const[showmail,setShowMail] = useState(false)
@@ -31,15 +32,28 @@ const Navbar = () => {
             .catch(err => console.log(err))
           }
   return (
-    <div className='navbar'>
-        <ul className='ul'>
+    <div >
+      <div className='navbar'>
+        <div className='navimg'>
+          <div className='imgbur'>
+                <div className='bur' onClick={()=>setmenu(!menu)} >
+                                  { menu?
+                                      <span class="material-symbols-outlined">
+                                        menu
+                                        </span>
+                                  :<span class="material-symbols-outlined">
+                                    close
+                                    </span>
+                                    }</div>
                 <img className='mailLogo1' src={mail1} alt="image" />
-      
+        </div>
+        <ul className={menu?'ul':'ulx'}>
                 <NavLink
                 to="/home"
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : "normal"
                 }
+                onClick={()=>setmenu(true)}
                 >
                 <div className='iconname'>
                   <span class="material-symbols-outlined">
@@ -54,6 +68,7 @@ const Navbar = () => {
                 className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "active" : "normal"
                 }
+                onClick={()=>setmenu(true)} 
                 >
                   <div className='iconname'>
                   <span class="material-symbols-outlined">
@@ -64,19 +79,8 @@ const Navbar = () => {
                 
                 </NavLink>
       
-                {/* <NavLink
-                to="/user"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "active" : "normal"
-                }
-                >
-                User
-                </NavLink> */}
-
-                
-               
-              
         </ul>
+        </div>
                 <div>
                  
                     <div className='mailContainer' onClick={()=>setShowMail(!showmail)}>
@@ -85,8 +89,10 @@ const Navbar = () => {
                           <div className='profiledp' title ={Email}>
                           {dp?dp:'+'}
                           </div>
+                     
                           
-                    </div>
+                  </div>        
+                    
                  
 
                   { showmail?<div className="vmail">
@@ -100,8 +106,11 @@ const Navbar = () => {
                         </div>
                     
                   </div>:null}
+
+                 
                 </div>
-       
+               
+                </div>
     </div>
     //
   )

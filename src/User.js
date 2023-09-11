@@ -9,7 +9,7 @@ import mailLogo from './gmail.png'
 
 const User = () => {
 
-    const [intro,setintro] = useState(true)
+    const [intro,setintro] = useState(false)
     const[add,setAdd] = useState(false)
     const[demo,setDemo] = useState(false)
     const[firstName,setFirstName] = useState()
@@ -21,11 +21,9 @@ const User = () => {
     const selectAccount = useContext(userContext);
     //
    
-    setTimeout(()=>{
-        
-    },1000)
- 
-   
+    const date = new Date()
+    const year = date.getFullYear()
+
     //
     useEffect(()=>{
         axios.get('https://bulkmailapp.onrender.com/getUser')
@@ -36,7 +34,12 @@ const User = () => {
             }
             
     })
-        .catch(err =>console.log(err))
+        .catch(err =>{console.log(err)
+        
+            setInterval(()=>{
+                window.location.reload()
+            },5000)
+        })
     },[])
     function switchaccount(email){
         selectAccount.setUserSelect(email);
@@ -85,6 +88,17 @@ const User = () => {
 
   return (
     <div className='initial' >
+        <header>
+        <div className='footerlogomail'>
+                            <div className='colorall' style={{fontSize:'20px',margin:'20px'}}> 
+                                <span className='bulk yr'>Bulk</span>
+                                <span className='emaill yg'>Email</span>
+                                <span className='app yb'>App</span>
+                            </div>
+            
+                    </div>
+        </header>
+        <main>
         {intro?<div className='watermark1'><img src={mailLogo} alt="" /></div>:null}
         <div className="useCase"  onClick={()=>setDemo(!demo)}>
                 <span class="material-symbols-outlined">
@@ -170,7 +184,7 @@ const User = () => {
         {/* <hr className='hr' /> */}
         <p className='rga'>REGISTERED ACCOUNT  <span style={{color:'red',fontSize:'20px',fontWeight:'800'}}>!</span></p>
             <div className='overflow'>
-                {console.log(user)}
+                {/* {console.log(user)} */}
             {
                 user!== undefined?user.map((a,i)=>
                     <div key={i} className='loginAccount' onClick={()=>switchaccount(a.email)}>
@@ -186,7 +200,8 @@ const User = () => {
                 </div>
         </div>
         </div>
-        
+        </main>
+
     </div>
     
   )

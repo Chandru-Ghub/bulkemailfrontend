@@ -33,7 +33,9 @@ const Sendmail = () => {
             from:yup.string().email('Invalid email address')
             .required('Required'),
             
-            to:!bulkMail?(yup.string().email('Invalid email address').required('Required')):null
+            to:!bulkMail?(yup.string().email('Invalid email address').required('Required')):null,
+            subject:yup.string().required(' Sub Required'),
+            message:yup.string().required('Message Required')
         }),
 
         onSubmit:(values,{resetForm})=>{
@@ -111,7 +113,7 @@ const Sendmail = () => {
               {!bulkMail?<>
             <label className='label' htmlFor="from">To</label>
             <input className='inp' type="text" 
-            onChange={formik.handleChange}placeholder='to email id'
+            onChange={formik.handleChange} onBlur={formik.handleBlur} placeholder='to email id'
             value={formik.values.to}  name='to' /> 
              { formik.touched.to && formik.errors.to ?
                             <p  className='err'> <span className="material-symbols-outlined eri">
@@ -135,18 +137,26 @@ const Sendmail = () => {
             <label className='label' htmlFor="from">Subject</label>
             <input className='inp' type="text" placeholder='Subject'
             onChange={formik.handleChange}
-            value={formik.values.subject}  name='subject' />
+            value={formik.values.subject}   name='subject' />
+            {formik.touched.subject &&formik.errors.subject ?
+                            <p  className='err'> <span className="material-symbols-outlined eri">
+                                error
+                                </span>{formik.errors.subject}</p> :null}
 
 
             <label className='label' htmlFor="from">Compose</label>
             <textarea className='inp txt' name="message" id="message" cols="30" 
-            onChange={formik.handleChange}rows="10" value={formik.values.message} ></textarea>
+            onChange={formik.handleChange}  rows="10" value={formik.values.message} ></textarea>
+            {formik.touched.message &&formik.errors.message ?
+                            <p  className='err'> <span className="material-symbols-outlined eri">
+                                error
+                                </span>{formik.errors.message}</p> :null}
             
             <div className='filebtn'>
-            <input type="file" multiple onChange={(e)=>setFile(e.target.files)}  />
-            <button type='submit' className='sendbtn'>Send<span className="material-symbols-outlined rck">
-            send
-            </span></button>
+                    <input type="file" multiple onChange={(e)=>setFile(e.target.files)}  />
+                    <button type='submit' className='sendbtn'>Send<span className="material-symbols-outlined rck">
+                    send
+                    </span></button>
             </div>
         </form>
     </div>}

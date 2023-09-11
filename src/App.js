@@ -6,6 +6,7 @@ import Sendmail from './Sendmail';
 import { createContext, useState } from 'react';
 import ViewMail from './ViewMail';
 import User from './User';
+import Footer from './Footer';
 
 export const userContext = createContext()
 
@@ -23,6 +24,7 @@ function App() {
             <Route path='/viewmail/:id' Component={ViewMail}/>
             <Route path='/' Component={User}/>
         </Routes>
+        <Footer/>
       </BrowserRouter>
     </userContext.Provider>
   )
