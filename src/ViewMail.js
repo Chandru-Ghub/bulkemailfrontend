@@ -22,7 +22,7 @@ const ViewMail = () => {
     },[])
 
     function viewImage(data){
-        console.log('working',data);
+        // console.log('working',data);
        
         setView(data) 
 
