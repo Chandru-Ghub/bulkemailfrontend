@@ -9,13 +9,9 @@ import mailLogo from './gmail.png'
 
 const User = () => {
 
-    const [intro,setintro] = useState(false)
+    const [intro,setintro] = useState(true)
     const[add,setAdd] = useState(false)
     const[demo,setDemo] = useState(false)
-    const[firstName,setFirstName] = useState()
-    const[lastName,setLastName] = useState()
-    const[email,setEmail] = useState()
-    const[key,setkey] = useState()
     const navigate = useNavigate()
     const [user,setUser] = useState()
     const selectAccount = useContext(userContext);
