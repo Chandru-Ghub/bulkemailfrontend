@@ -57,7 +57,7 @@ const Home = () => {
                                       </div>
                                           <ul key={i} className='mailSent'>
                                             <li className='to'>To: {a.toMail.length>1?'BULK MAIL...':a.toMail}</li>
-                                            <li className='sub'>Sub: {a.sub}</li>
+                                            <li className='sub'>Sub: {(a.sub).slice(0,20)+'...'}</li>
                                           </ul>
                                 
                                
