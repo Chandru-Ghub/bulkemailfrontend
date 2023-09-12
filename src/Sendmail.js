@@ -55,7 +55,7 @@ const Sendmail = () => {
             formData.append('message',message)
             formData.append('bulkmailId',bulkmailId)
             formData.append('sendtime',sendtime)
-            console.log(formData,sendtime);
+            // console.log(formData,sendtime);
 
             for (let i = 0; i < file.length; i++) {
                 formData.append('file', file[i]);
