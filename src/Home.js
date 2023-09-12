@@ -5,7 +5,6 @@ import { userContext } from './App'
 import axios from 'axios'
 import Navbar from './Navbar'
 import mail1 from './gmail.png'
-import Footer from './Footer'
 const Home = () => {
   
   const status = useContext(userContext);

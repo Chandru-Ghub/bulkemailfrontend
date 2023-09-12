@@ -59,8 +59,9 @@
 .sentContainer{
     padding: 40px 0 20px 40px;
     /* background-color: rgb(43, 43, 44); */
-    min-height: 100vh;
+    min-height: auto;
     max-height: auto;
+    margin-top: 50px;
 }
 
 .bulkmail{

@@ -7,6 +7,7 @@
     align-items: center;
     flex-direction: column;
     margin-top: 50px;
+    margin-bottom: 60px;
   }
   .registerBox{
     /* background-color: red; */
@@ -280,7 +281,7 @@
     height: auto;
     justify-content: space-between;
     padding: 10px 30px;
-    margin-top: 80px;
+    /* margin-top: 80px; */
     border-top: 2px solid rgb(217, 213, 213);
     align-items: center;
     font-size: 12px;
