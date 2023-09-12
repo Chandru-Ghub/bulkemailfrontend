@@ -286,22 +286,14 @@
     align-items: center;
     font-size: 12px;
 
-    >.copy{
-        
-    }
-    >.design{
 
-    }
 }
-.footerlogomail{
-    
-}
+
 .colorall{
     font-size: 15px;
     font-weight: 500;
     text-transform: uppercase;
  
-    
 }
 .yr{
     color: red;
@@ -380,18 +372,12 @@
        font-size: 7px;
         
     }
-    .perMail{
-        /* background-color: green; */
-        /* flex-direction: column;
-        margin: auto; */
-    }
+   
     .sentContainer{
         /* background-color: blue; */
         padding: 5px;
     }
-    .justy{
-        /* background-color: red; */
-    }
+    
     .to{
         display: flex;
         flex-wrap: wrap;
