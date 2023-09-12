@@ -78,7 +78,7 @@ const ViewMail = () => {
                         :null}
                         <div className='timedone'><span class="material-symbols-outlined">
                         done_all
-                        </span>{detail.sendtime} {(detail.time).slice(4,15)}</div>
+                        </span>{detail.sendtime} {detail.time!=undefined?(detail.time).slice(4,15):null}</div>
                                             </ul>
                     {/* {a.sendtime} {(a.time).slice(4,10)} */}
         </div>
