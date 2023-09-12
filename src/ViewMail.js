@@ -76,8 +76,11 @@ const ViewMail = () => {
                         {view?
                         <img className='openView' src={'https://bulkmailapp.onrender.com/images/'+view}  alt="" />
                         :null}
-                    </ul>
-                    
+                        <div className='timedone'><span class="material-symbols-outlined">
+                        done_all
+                        </span>{detail.sendtime} {(detail.time).slice(4,15)}</div>
+                                            </ul>
+                    {/* {a.sendtime} {(a.time).slice(4,10)} */}
         </div>
     </div>
   )

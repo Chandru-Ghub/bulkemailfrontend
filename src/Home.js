@@ -63,7 +63,7 @@ const Home = () => {
                                
                             </div>
                           
-                                    <div className='sentTime'> {a.sendtime} {(a.time).slice(4,15)}</div>
+                                    <div className='sentTime'> {a.sendtime} {(a.time).slice(4,10)}</div>
                             
                      </div>
                   </Link>
