@@ -23,7 +23,7 @@ const Sendmail = () => {
     const min = date.getMinutes()
 
     let minute = min<10 ? '0'+min:min
-    let sendtime = hour<12?'0'+hour+':'+minute:hour+':'+minute
+    let sendtime = hour<10?'0'+hour+':'+minute:hour+':'+minute
 
     const formik = useFormik({
     
